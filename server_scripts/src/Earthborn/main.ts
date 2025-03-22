@@ -11,15 +11,19 @@ PlayerEvents.loggedIn(event =>{
     if(!FilesJS.exists(jsonpath)){
 const data = JSON.parse(`{\n"name":"${playername}",\n"uuid":"${playerUUID}",\n"jointime":"${new Date()}",\n"parents":{"father":null,"mother":null},\n"gender":null,\n"deaths":0\n}`)
 meta.join_people += 1
-console.log(meta.join_people+"你妈死了")
-if(meta.join_people<2){
+if(meta.join_people==1){
     data.gender = 0
     JsonIO.write(jsonpath,data) //0为女，1为男
+}else if(meta.join_people==2){
+    data.gender = 1
+    JsonIO.write(jsonpath,data) //0为女，1为男
+}else{
+    data.gender = Math.floor(Math.random() * 2);
+    JsonIO.write(jsonpath,data) //生男生女都一样
 }
 JsonIO.write(`${earthbornapi.getconfigpath()}/meta.json`,meta) //复写Meta
     }
 })
-
 
 function test(mes){
     console.log("\x1B[32m"+mes+"\x1B[0m")
