@@ -7,3 +7,10 @@ EarthBorn基于Minecraft 1.20.1 Forge进行开发，其它版本使用不了请�
 * Kubejs(包括前置)
 * Probejs 7.0.0+
 * [FileJS](https://modrinth.com/mod/filesjs)
+
+### 如何使用API？
+``` TypeScript
+const earthbornapi = global.EarthbornAPI("注册ID")
+getconfigpath() //获取配置路径
+getplayerinfo() //获取玩家信息
+```
